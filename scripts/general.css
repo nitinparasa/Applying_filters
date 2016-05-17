@@ -1,0 +1,7 @@
+*{
+    font-family: "Trebuchet MS";
+}
+.navbar-form navbar-left button{
+    width:100%;
+    margin: 0;
+}
