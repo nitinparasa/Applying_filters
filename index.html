@@ -10,6 +10,7 @@
     <script src="scripts/script.js"></script>
     <link href="scripts/general.css" rel="stylesheet"/>
     <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <script>
 
@@ -47,7 +48,6 @@
    $(document).ready(function () {
 
        $("#cpass").keyup(validate);
-       $("#cpass").onfocus(validate);
    });
 
    function validate()
@@ -78,6 +78,17 @@
    $('#logmodreglink').click(function() {
        $('#loginModal').modal('hide');
    });
+   $('#loginbtn').click(function() {
+       $('#registerModal').modal('hide');
+   });
+   $('#reglink').click(function() {
+       $('#loginModal').modal('hide');
+   });
+    $(document).ready(function(){
+        $(".btn").onmouseover(function(){
+            $(".btn").css('border','1px solid red');
+        });
+    });
 </script>
 <body ng-app="myApp" ng-controller="mainController">
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -100,7 +111,7 @@
                     <button type="submit" class="btn btn-default">Search</button>
                 </form>
                 <li><a href="#" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;SIGN IN</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;REGISTER</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;SIGN UP</a></li>
                 <li class="dropdown">
                     <a href="#" class="data-toggle" data-toggle="dropdown">SUPPORT&nbsp;<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -121,11 +132,16 @@
         <div class="modal-content">
             <div class="modal-body">
                 <form class="form-horizontal signform" role="form" action="#">
-                    <div class="jumbotron">
+                    <div class="jumbotron" style="margin-top: 0px;">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-8 col-md-offset-2" style="margin-top: -40px;">
+                                <p style="font-size: 15px; font-family: 'Trebuchet MS';"> SignUp using <a href="#">Facebook</a> or <a href="#">Google</a></p>
+                            </div>
+                        </div>
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-offset-2 col-md-8 col-md-offset-2">
-                                    <div class="signtext">
+                                <div class="col-md-offset-2 col-md-8 col-md-offset-2" style="margin-top: -10px;">
+                                    <div class="signtext" style="margin-top: -10px;">
                                         <span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;SIGN UP
                                     </div>
                                 </div>
@@ -166,7 +182,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
-                                        <label for="cpass" class="control-label col-md-6"style="text-align:left;">CONFIRM PASSWORD</label>
+                                        <label for="cpass" class="control-label col-md-6" style="text-align:left;">CONFIRM PASSWORD</label>
                                         <div class="input-group col-md-6">
                                             <input type="password" name="cpass" ng-model="cpass" id="cpass" placeholder="Please confirm password...">
                                             <span class="input-group-addon glyphicon glyphicon-lock"></span>
@@ -182,13 +198,21 @@
                             <div class="row">
                                 <div class="col-md-offset-4 col-md-4 col-md-offset-4">
                                     <div class="signbtn">
-                                        <button class="btn btn-block btn-primary" type="submit" name="signup" ng-model="signup" id="signup">CREATE ACCOUNT</button>
+                                        <button class="btn btn-block" type="submit" name="signup" ng-model="signup" id="signup" value="CREATE ACCOUNT">CREATE ACCOUNT</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 remember">
                                     By clicking "Create Account" you agree with <b>Applying Filters</b> Terms and Conditions and Privacy Policy.
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6" style="margin-top: 30px;">
+                                    <label style="font-size: 20px;">Already a member?</label>
+                                </div>
+                                <div class="col-md-4 col-md-offset-0 col-sm-12 col-xs-12" style="float:right;margin-top: 20px;">
+                                    <input action="#" class="btn btn-lg" id="loginbtn" value="Login Here" data-toggle="modal" data-target="#loginModal" data-dismiss="modal" style="background-color: #3b5998;"/>
                                 </div>
                             </div>
                         </div>
@@ -209,10 +233,21 @@
                     <div class="jumbotron">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-offset-3 col-md-6 col-md-offset-3">
-                                    <div class="signtext" style="font-family: 'Trebuchet MS'; font-size: 30px;">
-                                       <span class="glyphicon glyphicon-user"  /> LOG IN
-                                    </div>
+                                <div class="col-md-offset-2 col-md-8 col-md-offset-2" style="padding-bottom: 10px;margin-top: -40px;">
+                                    <button class="btn btn-block btn-lg" style="background-color: #ffffff;color:black;border:1px solid black;">
+                                        <div class="col-xs-4 col-sm-3 col-md-2" >
+                                            <i class="fa fa-google"></i>
+                                        </div>Login with Google
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-8 col-md-offset-2" style="padding-bottom: 10px;">
+                                    <button class="btn btn-block btn-lg">
+                                        <div class="col-xs-4 col-sm-3 col-md-2" >
+                                            <i class="fa fa-fw fa-facebook"></i>
+                                        </div>Login with Facebook
+                                    </button>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -241,14 +276,14 @@
                                     <div class="col-md-offset-3 col-md-6">
                                         <div class="pull-left checkbox">
                                             <input data-val="true" class="pull-left" data-val-required="The Remember me field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true"/>
-                                            <label for="RememberMe" style="margin-right: auto;">Remember me</label>
+                                            <label for="RememberMe" style="margin-right: auto;font-family: 'Trebuchet MS'">Remember me</label>
                                         </div>
                                     </div>
                                 </div>
                             <div class="row">
                                 <div class="col-md-offset-4 col-md-4 col-md-offset-4">
                                     <div class="signbtn">
-                                        <button class="btn btn-block btn-primary" type="submit" name="signin" ng-model="signin" id="signin">LOG IN</button>
+                                        <button class="btn btn-block" type="submit" name="signin" ng-model="signin" id="signin">LOG IN</button>
                                     </div>
                                 </div>
                             </div>
@@ -259,9 +294,11 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-offset-2 col-md-8 col-sm-12">
-                                    <label>Don't have and account?</label>
-                                    <a href="#" data-toggle="modal" data-target="#registerModal" id="logmodreglink" data-dismiss="modal"> Register Here!</a>
+                                <div class="col-md-6" style="margin-top: 30px;">
+                                    <label style="font-size: 20px;">Don't have and account?</label>
+                                </div>
+                                <div class="col-md-4 col-md-offset-0 col-sm-12 col-xs-12" style="float:right;margin-top: 20px;">
+                                    <input action="#" class="btn btn-lg" value="SignUp Here" data-toggle="modal" data-target="#registerModal" id="reglink" data-dismiss="modal" style="background-color: #3b5998;"/>
                                 </div>
                             </div>
                         </div>
