@@ -6,5 +6,5 @@ var myApp = angular
                 .module("myApp", [])
                 .controller("mainController", function($scope){
                     $scope.name="Please enter your username";
-                    $scope.email="Please enter your email address";
+                    //$scope.email="Please enter your email address";
 });

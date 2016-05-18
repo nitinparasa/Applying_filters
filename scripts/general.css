@@ -1,7 +1,65 @@
+/* General CSS*/
 *{
     font-family: "Trebuchet MS";
 }
 .navbar-form navbar-left button{
     width:100%;
     margin: 0;
+}
+/* SignUp Form CSS */
+.signform{
+    margin: 40px 0px;
+    text-align: center;
+}
+.jumbotron{
+    margin:50px auto;
+    position:relative;
+}
+.signform input{
+    line-height: 1.3;
+    font-size: 1.4em;
+    padding: 5px 15px;
+    color: #fff;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+.signform input:focus{
+    outline: 3px solid cornflowerblue;
+}
+.signtext{
+    font-size: 30px;
+    font-weight: BOLD;
+    margin: 30px auto;
+}
+.signform label{
+    font-size: 15px;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    text-align: center;
+    font-size: 15px;
+    color: slategray;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #fff;
+    opacity:  1;
+    text-align: center;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #fff;
+    opacity:  1;
+    text-align: center;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+    text-align: center;
+}
+.signbtn{
+    text-align: center;
+    margin: 10px auto;
+    font-size: 15px;
+    font-weight: bold;
+}
+.remember{
+    font-family: 'lato',serif;
+    font-size: 16px;
 }
