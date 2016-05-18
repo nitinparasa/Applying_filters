@@ -63,3 +63,14 @@
     font-family: 'lato',serif;
     font-size: 16px;
 }
+/* remember me alignment */
+.checkbox a{
+    margin-top: 10px;
+}
+.checkbox input[type="checkbox"] {
+    margin-left: -30px;
+}
+.checkbox label {
+    font-family: "Trebuchet MS";
+    margin-left: 100px;
+}
