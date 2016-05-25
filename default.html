@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <script src="scripts/jquery-1.12.3.min.js" type="text/javascript"></script>
 <head>
@@ -234,11 +234,14 @@
                                         <label for="uname" class="control-label col-md-6 " style="text-align:left;">USERNAME</label>
                                         <div class="input-group col-md-6">
                                             <input type="text" name="uname" ng-model="uname" id="uname" ng-minlength="4" ng-maxlength="8" placeholder="Enter username..." required/>
-                                            <p ng-show="form.uname.$invalid && !form.uname.$pristine" class="help-block">You name is required.</p>
-                                            <p ng-show="form.uname.$error.minlength" class="help-block">Username is too short.</p>
-                                            <p ng-show="form.uname.$error.maxlength" class="help-block">Username is too long.</p>
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                                         </div>
+										<p ng-show="form.uname.$invalid && !form.uname.$pristine" class="help-block" style="font-size:10px;float:right;color:darkred;">
+										<span>*</span>Your name is required.</p>
+                                            <p ng-show="form.uname.$error.minlength" class="help-block" style="font-size:10px;float:right;color:darkred;">
+											<span>*</span>Username is too short.</p>
+                                            <p ng-show="form.uname.$error.maxlength" class="help-block" style="font-size:10px;float:right;color:darkred;">
+											<span>*</span>Username is too long.</p>
                                     </div>
                                 </div>
                             </div>
