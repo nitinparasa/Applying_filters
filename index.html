@@ -88,22 +88,26 @@
         $('#inputbtn').click(function(){
             $('#my-file').click();
         });
-    //upload tab pane script
+$('.googbtn').hover(function()
+{
+   $('.googbtn').css('color','blue');
+});
+   //upload tab pane script
    jQuery(function () {
-       jQuery('#up_tabs a:first').tab('show');
+       jQuery('#inpsel').tab('show');
    });
     var obj = $('#draganddrophandler');
     obj.on('dragenter',function(e){
        e.stopPropagation();
         e.preventDefault();
-        $(this).css('border','2px solid #0B85A1');
+        //$(this).css('border','2px solid #0B85A1');
    });
     obj.on('dragover',function(e){
         e.stopPropagation();
         e.preventDefault();
     });
     obj.on('drop',function(e){
-        $(this).css('border','2px dotted #0B85A1');
+        //$(this).css('border','2px dotted #0B85A1');
         e.preventDefault();
         var files=e.originalEvent.dataTransfer.files;
 
@@ -120,7 +124,8 @@
    {
        e.stopPropagation();
        e.preventDefault();
-       obj.css('border', '2px dotted #0B85A1');
+       //obj.css('border', '2px dotted #0B85A1');
+       //obj.css('padding','10px');
    });
    $(document).on('drop', function (e)
    {
@@ -141,6 +146,29 @@
 
        }
    }
+// selecting the file
+   $(document).on('change', '.btn-file :file', function() {
+       var input = $(this),
+               numFiles = input.get(0).files ? input.get(0).files.length : 1,
+               label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+       input.trigger('fileselect', [numFiles, label]);
+   });
+
+   $(document).ready( function() {
+       $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+
+           var input = $(this).parents('.input-group').find(':text'),
+                   log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+           if( input.length ) {
+               input.val(log);
+           } else {
+               if( log ) //alert(log);
+               $('.fileselected').html(log);
+           }
+
+       });
+   });
 
 </script>
 <body>
@@ -262,7 +290,7 @@
                                     <label style="font-size: 20px;">Already a member?</label>
                                 </div>
                                 <div class="col-md-4 col-md-offset-0 col-sm-12 col-xs-12" style="float:right;margin-top: 20px;">
-                                    <input action="#" class="btn btn-lg" id="loginbtn" value="Login Here" data-toggle="modal" data-target="#loginModal" data-dismiss="modal" style="background-color: #3b5998;"/>
+                                    <input type="button" action="#" class="btn btn-lg" id="loginbtn" value="Login Here" data-toggle="modal" data-target="#loginModal" data-dismiss="modal" style="background-color: #3b5998;"/>
                                 </div>
                             </div>
                         </div>
@@ -284,7 +312,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-offset-2 col-md-8 col-md-offset-2" style="padding-bottom: 10px;margin-top: -40px;">
-                                    <button class="btn btn-block btn-lg" style="background-color: #ffffff;color:black;border:1px solid black;">
+                                    <button class="btn btn-block btn-lg googbtn" style="background-color: red;color:white;border:1px solid red;">
                                         <div class="col-xs-4 col-sm-3 col-md-2" >
                                             <i class="fa fa-google"></i>
                                         </div>Login with Google
@@ -343,10 +371,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6" style="margin-top: 30px;">
-                                    <label style="font-size: 20px;">Don't have and account?</label>
+                                    <label style="font-size: 20px;">Don't have an account?</label>
                                 </div>
                                 <div class="col-md-4 col-md-offset-0 col-sm-12 col-xs-12" style="float:right;margin-top: 20px;">
-                                    <input action="#" class="btn btn-lg" value="SignUp Here" data-toggle="modal" data-target="#registerModal" id="reglink" data-dismiss="modal" style="background-color: #3b5998;"/>
+                                    <input type="button" action="#" class="btn btn-lg" value="SignUp Here" data-toggle="modal" data-target="#registerModal" id="reglink" data-dismiss="modal" style="background-color: #3b5998;"/>
                                 </div>
                             </div>
                         </div>
@@ -367,40 +395,62 @@
             <div class="input-group">
                 <label class="col-md-12 col-xs-12 col-sm-12">UPLOAD AND FILTER AUDIO FILES</label>
                 <label class="col-md-12 col-xs-12 col-sm-12">Click on the button below to upload audio files or Drop your files and get start filtering your audios</label>
-                <button type='submit' class="btn btn-primary col-md-offset-4 col-md-4 col-md-offset-4 col-xs-offset-2 col-xs-8 col-xs-offset-2 col-sm-offset-3 col-sm-6 col-sm-offset-3" value="UPLOAD AN AUDIO"
-                        data-target="#upload_modal" data-toggle="modal">UPLOAD AN AUDIO</button>
+                <button type='submit' class="btn btn-primary col-md-offset-5 col-md-2 col-md-offset-5 col-xs-offset-2 col-xs-8 col-xs-offset-2 col-sm-offset-3 col-sm-6 col-sm-offset-3" value="UPLOAD AN AUDIO"
+                        data-target="#upload_modal" data-toggle="modal" id="upbtn" ng-model="upbtn">UPLOAD AN AUDIO</button>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Body_Trending-->
+<div class="jumbotron" style="border:1px solid green;">
+    <div class="container">
+        <div class="row">
+            <ul class="nav nav-tabs" role="tablist" id="main_tabs">
+                <li class="active"><a href="#usrfiles" data-toggle="tab"></a>Your Audio Files</li>
+                <li class="active"><a href="#topfilts" data-toggle="tab"></a>Trending</li>
+            </ul>
+        </div>
+    </div>
+</div>
 <!-- Upload_modal-->
 <div class="modal fade" id="upload_modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <ul class="nav nav-tabs" id="up_tabs">
+                <ul class="nav nav-tabs nav-justified" id="up_tabs" role="tablist">
                     <li class="active"><a href="#dragdrop" data-toggle="tab">Drop Files here</a></li>
                     <li><a href="#inpsel" data-toggle="tab">Select files here</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane fade active" id="dragdrop">
+                    <div class="tab-pane fade  in active" id="dragdrop">
                         <div id="draganddrophandler">Drop the audio files here</div>
                     </div>
                     <div class="tab-pane fade" id="inpsel">
-                        <div >Hello</div>
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-6 col-md-offset-3" style="text-align: center;">
+                                <label style="font-size: 20px;">Select your audio files</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" >
+                                    <label class="btn btn-default btn-file" style=" width:100%;font-size: 15px;">
+                                        Browse <input type="file" style="display: none;">
+                                    </label>
+                                </div>
+                                <div class="col-md-4" style="color:#292C2F;font-family:'Trebuchet MS';text-align: center;margin-top:10px;">
+                                    <div class="fileselected"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <label>By Uploading your agree to our <a href="terms.html" style="float: center;color:cyan;">Terms</a></label>
+            <div class="modal-footer" style="text-align:center;">
+                <label>By Uploading, you agree to our <a href="terms.html" style="color:cyan;">Terms</a>.</label>
             </div>
         </div>
     </div>
 </div>
-
-<!-- drag drop-->
-<!--select-->
 
 
 <!-- Footer -->
@@ -443,13 +493,13 @@
             <div class="row">
                 <div class="col-md-6 social">
                     <h3>Connect with Us</h3>
-                    <a class="soclogo" href="http://github.com" >
+                    <a class="soclogo" href="https://github.com/nitinparasa/Applying_filters" >
                         <span class="fa fa-github" />
                      </a>
                     <a class="soclogo" href="http://twitter.com" >
                         <span class="fa fa-twitter" />
                     </a>
-                    <a class="soclogo" href="http://facebook.com">
+                    <a class="soclogo" href="https://www.facebook.com">
                         <span class="fa fa-facebook" />
                     </a>
                     <a class="soclogo" href="http://linkedin.com">
