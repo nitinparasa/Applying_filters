@@ -1,3 +1,44 @@
-# Applying_filters
+frontend
+============
 
-This project is mainly aimed towards people with interest in signal processing.  There is a website where one can upload soundclips and be able to play the content of the files. Different filters to these soundclips could be applied and heard for the changes in the sounds. A typical example could be passing a sound wave through a filter and making changes to the frequency, etc.
+## Development
+
+To start developing in the project run:
+
+```bash
+gulp serve
+```
+
+Then head to `http://localhost:3000` in your browser.
+
+The `serve` tasks starts a static file server, which serves the AngularJS application, and a watch task which watches all files for changes and lints, builds and injects them into the index.html accordingly.
+
+## Tests
+
+To run tests run:
+
+```bash
+gulp test
+```
+
+**Or** first inject all test files into `karma.conf.js` with:
+
+```bash
+gulp karma-conf
+```
+
+Then you're able to run Karma directly. Example:
+
+```bash
+karma start --single-run
+```
+
+## Production ready build - a.k.a. dist
+
+To make the app ready for deploy to production run:
+
+```bash
+gulp dist
+```
+
+Now there's a `./dist` folder with all scripts and stylesheets concatenated and minified, also third party libraries installed with bower will be concatenated and minified into `vendors.min.js` and `vendors.min.css` respectively.
