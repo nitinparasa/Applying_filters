@@ -9,7 +9,9 @@ app_Filters.controller('signCtrl',function ($scope) {
         if ($scope.form.$valid) {
             alert('all are valid');
         }
-
+else {
+          alert('not valid');
+        }
     };
 
 
