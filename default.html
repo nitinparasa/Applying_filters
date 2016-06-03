@@ -233,15 +233,13 @@
                                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                                         <label for="uname" class="control-label col-md-6 " style="text-align:left;">USERNAME</label>
                                         <div class="input-group col-md-6">
-                                            <input type="text" name="uname" ng-model="uname" id="uname" ng-minlength="4" ng-maxlength="8" placeholder="Enter username..." required/>
+                                            <input type="text" name="uname" ng-model="uname" id="uname" ng-minlength="4" ng-maxlength="8" ng-pattern="/^[a-zA-Z0-9]$/" placeholder="Enter username..." required/>
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                                         </div>
-										<p ng-show="form.uname.$invalid && !form.uname.$pristine" class="help-block" style="font-size:10px;float:right;color:darkred;">
-										<span>*</span>Your name is required.</p>
-                                            <p ng-show="form.uname.$error.minlength" class="help-block" style="font-size:10px;float:right;color:darkred;">
+										                        <p ng-show="form.uname.$error.minlength" class="help-block" style="font-size:10px;float:right;color:darkred;">
 											<span>*</span>Username is too short.</p>
-                                            <p ng-show="form.uname.$error.maxlength" class="help-block" style="font-size:10px;float:right;color:darkred;">
-											<span>*</span>Username is too long.</p>
+                                      <p ng-show="form.uname.$error.pattern" class="help-block" style="font-size:10px;float:right;color:darkred;">
+                                        <span>*</span>Usernameisinvalid.</p>
                                     </div>
                                 </div>
                             </div>
@@ -251,9 +249,12 @@
                                         <label for="email" class="control-label col-md-6" style="text-align:left;">EMAIL</label>
                                         <div class="input-group col-md-6">
                                             <input type="email" name="email" ng-model="email" id="email" placeholder="Enter email-address..." required/>
-                                            <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block">Enter a valid email.</p>
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>                                        </div>
-                                    </div>
+                                          <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                        </div>
+                                      <p ng-show="form.email.$invalid && !form.email.$pristine" class="help-block" style="font-size:10px;float:right;color:darkred;">
+                                        <span>*</span>Enter a valid email.</p>
+                                                                             </div>
+
                                 </div>
                             </div>
                             <div class="form-group">
