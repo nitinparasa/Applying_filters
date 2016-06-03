@@ -1,0 +1,294 @@
+/* General CSS*/
+
+*{
+    font-family: "Trebuchet MS";
+}
+.navbar-form navbar-left button{
+    width:100%;
+    margin: 0;
+}
+/* SignUp Form CSS */
+.signform{
+    margin: 40px 0px;
+    text-align: center;
+}
+.jumbotron{
+    margin:0px;
+    position:relative;
+    background: transparent !important;
+}
+.signform input{
+    line-height: 1.3;
+    font-size: 1.4em;
+    padding: 5px 15px;
+    color: slategray;
+    width: 100%;
+    background-color: #ffffff;
+}
+.signform input:focus{
+    outline: 2px solid cornflowerblue;
+}
+.signtext{
+    font-size: 30px;
+    font-weight: BOLD;
+    margin: 30px auto;
+}
+.signform label{
+    font-size: 15px;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    text-align: center;
+    font-size: 15px;
+    color: slategray;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #fff;
+    opacity:  1;
+    text-align: center;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #fff;
+    opacity:  1;
+    text-align: center;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+    text-align: center;
+}
+.signbtn{
+    text-align: center;
+    margin: 10px auto;
+    font-size: 15px;
+    font-weight: bold;
+}
+.remember{
+    font-family: 'lato',serif;
+    font-size: 16px;
+}
+/* remember me alignment */
+.checkbox a{
+    margin-top: 10px;
+}
+.checkbox input[type="checkbox"] {
+    margin-left: -30px;
+}
+.checkbox label {
+    font-family: "Trebuchet MS";
+    margin-left: 100px;
+}
+.btn {
+    background-color: slategray;
+    color:white;
+}
+input .btn{
+    background-color: #3b5998;
+    color:white;
+}
+hr {
+    -moz-box-sizing: border-box;
+    -moz-float-edge: margin-box;
+    border: 1px inset;
+    color: gray;
+    display: block;
+    height: 2px;
+    margin: 0.5em auto;
+}
+@media screen and (min-width: 768px) {
+    .modal-dialog {
+        width: 700px; /* New width for default modal */
+    }
+    .modal-sm {
+        width: 350px; /* New width for small modal */
+    }
+}
+@media screen and (min-width: 992px) {
+    .modal-lg {
+        width: 950px; /* New width for large modal */
+    }
+}
+
+.modal-body{
+    max-height:50%;
+}
+/*Centers the modal*/
+.modal-dialog-lg{
+    margin: 2.5vh auto;
+}
+
+/*Sets the maximum height of the entire modal to 95% of the screen height*/
+.modal-content-lg {
+    max-height: 95vh;
+}
+
+/*Sets the maximum height of the modal body to 90% of the screen height*/
+.modal-body-lg {
+    max-height: 90vh;
+}
+/*Sets the maximum height of the modal image to 69% of the screen height*/
+.modal-body-lg img {
+    max-height: 69vh;
+}
+
+/* body styles*/
+.wrapper{
+    padding:20px;
+}
+/*Footer Styling */
+footer{
+    position: relative;
+    font-family: 'Trebuchet MS';
+    height: auto;
+    background-color: #292C2F;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+}
+.footnav {
+}
+.footnav h3{
+    margin-left: 40px;
+}
+.footnav ul{
+    text-align: left;
+}
+.footnav ul li{
+    list-style-type: none;
+    margin-left: 0px;
+    margin-bottom: 6px;
+}
+.footnav h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+.footnav ul li a{
+    font-size: 16px;
+    font-weight: bold;
+    color: #dce1e2;
+}
+.footnav ul li a:link{
+
+}
+.social{
+    text-align: center;
+    clear: both;
+    float: none;
+}
+.social h3{
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.soclogo span{
+    color: #ffffff;
+    font-size : 25px;
+    height: 40px;
+    width: 40px;
+    padding-left: 35px;
+    margin: 10px 10px;
+}
+.emadd{
+    text-align: center;
+    margin: 20px auto;
+    clear: both;
+    float: none;
+}
+.emadd{
+    text-align: left;
+}
+.emadd label{
+    margin-left: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+.emadd input{
+    margin-left: 30px;
+    margin-top: 25px;
+    line-height: 1.5;
+    font-size: 25px;
+    padding: 5px 10px;
+    color: #fff;
+    width: 90%;
+    font-weight: normal;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background-color:#292C2F;
+}
+.copyright{
+    margin: 50px auto;
+}
+/* body styling*/
+.menu_tabs{
+    width:100%;
+    background:#292C2F;
+    padding:30px;
+    margin-top:51px;
+    height:20%;
+}
+.menu_tabs label{
+    color:#ffffff;
+    text-align:center;
+    font-family:'Trebuchet MS';
+    font-size:20px;
+}
+.menu_tabs label:first-child{
+    color:#ffffff;
+    text-align:center;
+    font-family:'Trebuchet MS';
+    font-size:32px;
+}
+#inputbtn{
+    font-size:20px;
+}
+#draganddrophandler{
+   /*border:2px dotted #0B85A1;*/
+    width:100%;
+    height:200px;
+    background:lightgray;
+    color:#92AAB0;
+    text-align:left;vertical-align:middle;
+    padding:10px 10px 10 10px;
+    margin-top:10px;
+    font-size:200%;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+#up_tabs li.active{
+    border-top: 0px;
+    border-bottom: 2px solid cyan;
+}
+#up_tabs a{
+    font-weight:BOLD;
+    outline:none;
+}
+#up_tabs > .active > a, #up_tabs > .active > a:hover {
+    outline: none;
+}
+#registerModal a:link:first-child{
+  color:#3b5998;
+}
+#registerModal a:link:last-child{
+  color:#d50f25;
+}
