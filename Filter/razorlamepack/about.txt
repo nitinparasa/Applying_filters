@@ -1,0 +1,8 @@
+
+ LAME 3.97 Win32 CLI executable
+ Compiled by Intel C++ compiler and Netwide-assembler.
+
+ Modified output for use with RazorLame
+ packed by <jultus@gmail.com>  Targeted at the smart VBR user.
+
+ Please do not delete this file !

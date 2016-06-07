@@ -1,0 +1,62 @@
+;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+;
+;W A R N I N G ! ! !
+;
+;Do not change this file!
+; 
+;This file came with RazorLame and is likely to be changed
+;with every new version of it.
+;
+;Even worse, changes in this file might cause RazorLame
+;to stop working properly.
+;
+;So don't change this file, you have been warned!!!!!
+;
+;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[EncodeInfoMsgs]
+1=LAME 3.97#20
+2=GPSYCHO:#20
+3=Using#20
+4=Autoconverting#20
+5=Resampling:#20
+6=Win32 binaries from#20
+7=win32 binaries from#20
+8=polyphase lowpass filter#20
+9=CPU features#20
+10=using#20
+11=Can't step back#20
+12=Xing VBR header dectected.#20
+13=Xing VBR header detected.#20
+14=CPU features:#20
+15=#20#20#20#20#20#20to
+16=#20Executable downloaded#20
+17=( Binaries downloaded
+18=(Win32 binaries
+19=Warning: many decoders cannot handle free format bitstreams
+20=+ Modification for 
+21=#20#20#20#20Available at 
+22=ID3v2 found. Be aware that the ID3 tag is currently lost when transcoding.
+23=bitstream problem: resyncing...
+24=Input file is freeformat.
+25=Using polyphase lowpass filter
+26=ReplayGain:#20
+27=32bits
+
+[DecodeInfoMsgs]
+1=skipping#20
+2=Can't step back#20
+3=Xing VBR header dectected.#20
+4=Xing VBR header detected.#20
+5=#09(
+6=Input file is freeformat.
+7=bitstream problem: resyncing...
+8=ID3v2 found. Be aware that the ID3 tag is currently lost when transcoding.
+
+[InputFileTypes]
+Audio-Files=*.wav;*.aif;*.aiff;*.mp3;*.mp2;*.mp1;*.ape
+Wave-Files (*.wav)=*.wav
+MP3-Files (*.mp3)=*.mp3
+MPx-Files (*.mp?)=*.mp3;*.mp2;*.mp1
+AIFF-Files (*.aif, *.aiff)=*.aif;*.aiff
+Monkey's-Audio-Files (*,ape)=*.ape
