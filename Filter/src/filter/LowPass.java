@@ -17,7 +17,7 @@ public class LowPass {
     
     public void fil(String s1) throws IOException{   
       
-      ProcessBuilder builder = new ProcessBuilder(
+        ProcessBuilder builder = new ProcessBuilder(
             "cmd.exe", "/c", "cd \"C:\\Users\\mahith\\Desktop\\razorlamepack\" && lame "+s1+" audio2.mp3 --lowpass 19.7");
         builder.redirectErrorStream(true);
         Process p = builder.start();
@@ -26,13 +26,13 @@ public class LowPass {
         while (true) {
         line = r.readLine();
         if (line == null) { break; }
-        System.out.println(line);}
-    
+        System.out.println(line);
+        }
   }
-    
+        
     public static void main(String[] args) throws IOException{
-    
-       
+          
+        
     }
     
 }
