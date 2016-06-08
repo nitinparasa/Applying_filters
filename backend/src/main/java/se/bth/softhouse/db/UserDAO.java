@@ -1,5 +1,9 @@
 package se.bth.softhouse.db;
 
+import org.skife.jdbi.v2.sqlobject.Bind;
+import org.skife.jdbi.v2.sqlobject.SqlQuery;
+import org.skife.jdbi.v2.sqlobject.SqlUpdate;
+
 import se.bth.softhouse.entities.Users;
 
 public interface UserDAO {
