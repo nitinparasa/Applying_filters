@@ -1,6 +1,6 @@
 package se.bth.softhouse.entities;
 
-import com.sun.istack.internal.NotNull;
+import javax.validation.constraints.NotNull;
 
 public class Filter {
 
