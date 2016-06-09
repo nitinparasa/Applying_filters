@@ -9,30 +9,44 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
+import com.google.common.base.Preconditions;
 
 import se.bth.softhouse.db.UserDAO;
 import se.bth.softhouse.entities.Users;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("/users")
+@Path("users")
 public class UserResource {
+	private UserDAO userDao;
 
-	public UserDAO userDAO;
-
-	public UserResource(UserDAO dao) {
-		this.userDAO = dao;
+	public UserResource(UserDAO userDao) {
+		Preconditions.checkNotNull(userDao);
+		this.userDao = userDao;
 	}
 
 	@GET
+	@Path("/all/")
+	public Users getBy(){
+	return userDao.getBy();	
+	}
+	
+	@GET
+	@Path("/name/{uname}")
+	public Users getBy(@PathParam("uname") String username){
+	return userDao.getBy(username);
+	}
+	
+	@GET
 	@Path("/{id}")
 	public Users getBy(@PathParam("id") int id) {
-		return userDAO.getBy(id);
+		return userDao.getBy(id);
 	}
 
 	@POST
 	@Timed
 	public void insertUsers(Users users) {
-		//userDAO.insertUser(users);
+		userDao.insertUser(users);
 	}
+
 }
