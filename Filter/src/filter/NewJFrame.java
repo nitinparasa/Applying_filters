@@ -277,7 +277,7 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
             s=s.replace(".mp3", ".wav");
             File target = new File(s);
             jTextField1.setText(s);  
-            //System.out.println(s);
+            System.out.println(s);
             AudioAttributes audio = new AudioAttributes();
             audio.setCodec("pcm_s16le");
             audio.setBitRate(128000);
@@ -296,8 +296,12 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
            }
         } 
-            
-        
+           AudioSpectrum as=new AudioSpectrum(); 
+        try {
+            as.fill(s);
+        } catch (IOException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Scanner in = new Scanner(System.in);
  
         System.out.println("Enter a string");
@@ -317,7 +321,14 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
                
         } catch (FileNotFoundException ex) {
                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-           }                                        
+           }  
+           
+          Example ex1=new Example();
+             try {
+                 ex1.spectrum();
+             } catch (IOException ex) {
+                 Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+             }
        }
 
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -341,7 +352,7 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
             s=s.replace(".mp3", ".wav");
             File target = new File(s);
             jTextField1.setText(s);  
-            //System.out.println(s);
+            System.out.println(s);
             AudioAttributes audio = new AudioAttributes();
             audio.setCodec("pcm_s16le");
             audio.setBitRate(128000);
@@ -360,6 +371,12 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
            }
         } 
         
+        AudioSpectrum as=new AudioSpectrum();
+        try {
+            as.fill(s);
+        } catch (IOException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Scanner in = new Scanner(System.in);
         
         System.out.println("Enter a string");
@@ -379,7 +396,14 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
         } catch (FileNotFoundException ex) {
                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
     }//GEN-LAST:event_jButton5ActionPerformed
-  }
+             try {
+                Example ex=new Example();
+                ex.spectrum();
+             } catch (IOException ex1) {
+                 Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex1);
+             }
+        
+        }
 }      
     /**
      * @param args the command line arguments

@@ -13,7 +13,6 @@ import java.io.InputStreamReader;
  *
  * @author mahith
  */
-
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -31,13 +30,13 @@ import javax.swing.JLabel;
  class Example {
 
 
-    public Example() throws IOException
+    public void spectrum() throws IOException
     {
-        BufferedImage img=ImageIO.read(new File("C:\\Users\\USER\\Dropbox\\spectrogram.png"));
+        BufferedImage img=ImageIO.read(new File("C:\\Users\\mahith\\Desktop\\spectrogram.png"));
         ImageIcon icon=new ImageIcon(img);
         JFrame frame=new JFrame();
         frame.setLayout(new FlowLayout());
-        frame.setSize(200,300);
+        frame.setSize(500,500);
         JLabel lbl=new JLabel();
         lbl.setIcon(icon);
         frame.add(lbl);
