@@ -1,11 +1,16 @@
 package se.bth.softhouse.db;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
+<<<<<<< HEAD
 import org.skife.jdbi.v2.sqlobject.BindBean;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
+=======
+import org.skife.jdbi.v2.sqlobject.SqlQuery;
+import org.skife.jdbi.v2.sqlobject.SqlUpdate;
+>>>>>>> b97f475cbabbe84eeaab4b9f1aea40ba40561672
 
 import se.bth.softhouse.entities.Users;
 

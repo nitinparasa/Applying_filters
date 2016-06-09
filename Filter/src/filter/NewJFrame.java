@@ -270,40 +270,35 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
         } catch (IOException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Scanner in = new Scanner(System.in);
- 
-        System.out.println("Enter a string");
-        s = in.nextLine();
-        if(s!=null){
-         
-            System.out.print("succes");
-            String s="C:\\Users\\mahith\\Desktop\\razorlamepack\\audio2.mp3";
-            File f2=new File(s);
-            FileInputStream fi;
-            try {
-                fi = new FileInputStream(f2);
-                BufferedInputStream bis=new BufferedInputStream(fi);
-                Player player=new Player(bis);
-                player.play();
-            }
+        String s="C:\\Users\\mahith\\Desktop\\razorlamepack\\audio2.mp3";
+        if(s.endsWith(".mp3")){
+        
+            File source = new File(s);
+            s=s.replace(".mp3", ".wav");
+            File target = new File(s);
+            jTextField1.setText(s);  
+            System.out.println(s);
+            AudioAttributes audio = new AudioAttributes();
+            audio.setCodec("pcm_s16le");
+            audio.setBitRate(128000);
+            audio.setChannels(2);
+            audio.setSamplingRate(44100);
+            EncodingAttributes attrs = new EncodingAttributes();
+            attrs.setFormat("wav");
+            attrs.setAudioAttributes(audio);
+            Encoder en = new Encoder();
             
-            catch (FileNotFoundException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (JavaLayerException ex) {
-                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        
-          String s3=jTextField1.getText();
-         System.out.print(s3);
-         HighPass h1=new HighPass();
+         try {   
+               en.encode(source,target,attrs);
+           } catch (IllegalArgumentException ex) {
+               Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+           } catch (EncoderException ex) {
+               Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        } 
+           AudioSpectrum as=new AudioSpectrum(); 
         try {
-            h1.fil(s3);
+            as.fill(s);
         } catch (IOException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -312,28 +307,104 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
         System.out.println("Enter a string");
         s = in.nextLine();
         if(s!=null){
-        //System.out.print("succes");
-         String s="C:\\Users\\mahith\\Desktop\\razorlamepack\\audio3.mp3";
-         File f2=new File(s);
-             FileInputStream fi;
-             try {
-                 fi = new FileInputStream(f2);
-                  BufferedInputStream bis=new BufferedInputStream(fi);
-                    Player player=new Player(bis);
-                   player.play();
-             }
+         
+            System.out.print("succes");
             
-              catch (FileNotFoundException ex) {
+            String s1=jTextField1.getText();
+            File f2=new File(s1);
+            System.out.print(f2);
+            
+            // check wav file
+           try {
+               InputStream in1 = new FileInputStream(f2);
+               AudioPlayer.player.start(in1);
+               
+        } catch (FileNotFoundException ex) {
+               Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+           }  
+           
+          Example ex1=new Example();
+             try {
+                 ex1.spectrum();
+             } catch (IOException ex) {
                  Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-             } catch (JavaLayerException ex) {
-                 Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
-             }       
+             }
+       }
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+         String s3=jTextField1.getText();
+         System.out.print(s3);
+         HighPass h1=new HighPass();
+        try {
+            h1.fil(s3);
+        } catch (IOException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String s="C:\\Users\\mahith\\Desktop\\razorlamepack\\audio3.mp3";
+         if(s.endsWith(".mp3")){
+        
+            File source = new File(s);
+            s=s.replace(".mp3", ".wav");
+            File target = new File(s);
+            jTextField1.setText(s);  
+            System.out.println(s);
+            AudioAttributes audio = new AudioAttributes();
+            audio.setCodec("pcm_s16le");
+            audio.setBitRate(128000);
+            audio.setChannels(2);
+            audio.setSamplingRate(44100);
+            EncodingAttributes attrs = new EncodingAttributes();
+            attrs.setFormat("wav");
+            attrs.setAudioAttributes(audio);
+            Encoder en = new Encoder();
+           try {   
+               en.encode(source,target,attrs);
+           } catch (IllegalArgumentException ex) {
+               Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+           } catch (EncoderException ex) {
+               Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        } 
+        
+        AudioSpectrum as=new AudioSpectrum();
+        try {
+            as.fill(s);
+        } catch (IOException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Scanner in = new Scanner(System.in);
+        
+        System.out.println("Enter a string");
+        s = in.nextLine();
+        if(s!=null){
+        //System.out.print("succes");
+         //String s="C:\\Users\\mahith\\Desktop\\razorlamepack\\audio3.mp3";
+           String s1=jTextField1.getText();
+            File f2=new File(s1);
+            System.out.print(f2);
+            
+            // check wav file
+           try {
+               InputStream in1 = new FileInputStream(f2);
+               AudioPlayer.player.start(in1);
+               
+        } catch (FileNotFoundException ex) {
+               Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+    }//GEN-LAST:event_jButton5ActionPerformed
+             try {
+                Example ex=new Example();
+                ex.spectrum();
+             } catch (IOException ex1) {
+                 Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex1);
+             }
         
         }
-              
-    }//GEN-LAST:event_jButton5ActionPerformed
-     
-    
+}      
     /**
      * @param args the command line arguments
      */

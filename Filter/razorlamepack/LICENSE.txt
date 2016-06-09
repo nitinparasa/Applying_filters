@@ -1,0 +1,59 @@
+The rules governing the use of RazorLame and the RazorLame source code
+are derived from the official Open Source Definition, available at
+http://www.opensource.org. The conditions and limitations are as
+follows: 
+
+You may not use the RazorLame source code to create and distribute
+custom versions of RazorLame under the "RazorLame" name. If you do
+modify and distribute custom versions of RazorLame, the binary
+distribution must be named differently and clearly marked so users can
+tell they are not using the official RazorLame distribution. A visible
+and unmodified version of this license must appear in any modified
+distribution of RazorLame. 
+
+Custom distributions of RazorLame must include all of the custom
+changes as a patch file that can be appplied to the original source
+code. This restriction is in place to protect the integrity of the
+original author's source code. No support for modified versions of
+RazorLame will be provided by the original authors. 
+
+Works which add significant value to the components and code within
+RazorLame need not be distributed under the open source license.
+However, the application must include a reference to RazorLame along
+with a URL in either the about box, readme file or help file.
+Applications which use this work and do not add significant value to the
+work presented within RazorLame must be distributed under the Open
+Source license. Holger Dors will be the final arbitrator as to what
+consists of significant added value. 
+
+Please note that Holger Dors and the other contributing authors hereby
+state that this package is provided "as is" and without any express or
+implied warranties, including, but not without limitation, the implied
+warranties of merchantability and fitness for a particular purpose. In
+other words, we accept no liability for any damage that may result from
+using RazorLame or programs that use the RazorLame source code. 
+
+If you have questions about this license, please email Holger Dors at
+holger@dors.de
+
+
+Can I use LAME.EXE in my commercial program?  
+
+Yes, you can, under the restrictions of the LGPL.  The easiest
+way to do this is to:
+
+1. Link to LAME as separate library (libmp3lame.a on unix or 
+   lame_enc.dll on windows)
+
+2. Fully acknowledge that you are using LAME, and give a link
+   to our web site, www.mp3dev.org
+
+3. If you make modifications to LAME, you *must* release these
+   these modifications back to the LAME project, under the LGPL.
+
+
+*** IMPORTANT NOTE ***
+
+The decoding functions provided in LAME use the mpglib decoding engine which
+is under the GPL.  They may not be used by any program not released under the
+GPL unless you obtain such permission from the MPG123 project (www.mpg123.de).

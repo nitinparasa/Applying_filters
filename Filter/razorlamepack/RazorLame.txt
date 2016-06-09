@@ -1,0 +1,158 @@
+Readme file for RazorLame 1.2.0
+===============================
+
+What is RazorLame?
+------------------
+RazorLame is a so-called front-end for use with LAME.
+
+LAME is a great MP3-Encoder: it's very fast, it produces 
+high-quality files, has many advanced features (like 
+Variable Bitrates and Joint-Stereo), and it's open source. 
+
+Unfortunately, it is a command line utility, and that is 
+where RazorLame comes in: it provides an easy-to-use 
+graphical user-interface which makes MP3-encoding even 
+easier!
+
+You can find more about LAME at http://www.mp3dev.org/
+
+==========================================================
+Holger Dors, 2001-12-12
+E-Mail: Razor.Blade@gmx.net
+Web: http://www.dors.de/razorlame/
+==========================================================
+Jouni Airaksinen, 2002-11-08
+E-Mail: mintus@bluecave.net
+Web: http://www.bluecave.net/
+==========================================================
+
+
+Release History
+---------------
+
+Legend: 
+(+) Added feature
+(*) Improved/changed feature
+(-) Bug fixed (hopefully)
+
+Version 1.2.0 (8. October 2002) 
+-- This is unofficial version by Jouni Airaksinen --
+(*) Removed XP-like menus and toolbars, added
+    XP-standard alike menu and other XP look
+    to the GUI (shows only under Windows XP)
+
+Version 1.1.5 (12. December 2001)
+(+) some GUI features: font selection, XP-like 
+    menus and toolbars, support for XP Themes
+(*) enhanced & nicer histogram display
+(*) progress dialog remembers if histogram was shown
+(+) double click on listview entries starts 
+    associated program
+(*) Application Title now shows batch progress
+(*) Status Bar shows current LAME setting
+(*) added more option files which are similar
+    to the presets of LAME 3.90
+(-) yet another try to fix the "average value missing" bug
+(-) should fix problems with large fonts
+(-) fixed decimal-point problem for rlo files
+(-) some smaller changes and bug fixes
+
+Version 1.1.4 (12. April 2001)
+(+) Added some option files. Thanks to Gabriel Bouvigne 
+    of http://www.mp3-tech.org for providing them!
+(-) Now handles the "use source" checkbox for the
+    output directory correctly
+(-) histogram is now displayed correctly for all 
+    VBR/ABR modes
+(-) Summary line for ABR/VBR ("average bitrate") is finally 
+    added to log for all cases. (I hope...)
+(*) Files > 2 GB are correctly displayed now, however,
+    progress isn't displayed on large file for now
+(-) some smaller fixes
+
+Version 1.1.3
+was an internal-only release and is now the base
+for 1.2.0, which is currently developed. Current source
+of 1.2.0 can be obtained through CVS at 
+http://www.sourceforge.net/projects/razorlame
+
+Version 1.1.2a (26. March 2001)
+(-) Added some messages to RazorLame.dat, as there was trouble
+    with some popular compiled versions of lame 3.88 beta
+
+Version 1.1.2 (21. January 2001)
+(+) If LAME outputs a histogram during encoding, RL can now display 
+    this histogram graphically as well.
+(+) You can now set the default priority of the encoding thread.
+(+) You can now choose what RL should do if "shutdown Windows when
+    done" is checked. Options include Hibernate, Suspend, Log Off,
+    Just close RL, Reboot, and of course, shutdown.
+(+) You can now save option settings in a file. And of course
+    load them again ;-)
+(*) The progress window is now resizable.
+(*) The option dialog is now splitted in a "program" options and a
+    "LAME" options dialog.
+(*) The LAME options dialog now always show the resulting LAME 
+    switches without the need for pressing a "show" button.
+(*) You can now move columns of the listview.
+    However, layout of listview isn't stored yet.
+(*) "View Log" window now has a "delete log" button.
+(*) added support for "--athshort" and "-q" switches.
+    Added a "default" mode for the channel modes.
+(*) hopefully the output directory option is now more intuitive.
+(-) RL now uses less CPU time (i.e. it updates the progress window
+    only once in a second, when in tray it updates it only every
+    ten seconds.)
+(-) fixed problems with some mp3 files (e.g. "trimmed") 
+    when decoding or re-encoding
+(-) Probably more smaller fixes I cannot think of right now.
+    
+
+Version 1.1.1 (29. October 2000) 
+(*) better handling of LAME 3.87 beta
+(*) Nicer application icon and toolbar images,
+    thanks to Jan Hryz <jan.hryz@email.cz>    
+(*) You can now delete files after decoding as well!
+(*) Improved listview, shows associated icon and type
+(*) Improvements for handling a lot of files
+(*) some smaller, rather cosmetic changes
+(-) "-B" option was ignored for ABR
+
+
+Version 1.1.0 (20. August 2000) 
+(+) You can now decode mp3 files using LAME! 
+    (Needs at least version 3.84!)
+(+) added support for --abr 
+    (average bitrate aka Safe VBR)
+(*) Some system stuff is now read from a *.dat file
+    This allows for a bit more flexibility in regard
+    of future LAME versions.
+(*) Hints are now visible for 10 seconds so those
+    in the options dialog can be better read
+(*) When sorting paths, use filename as second sort 
+    criteria
+(*) Same small, rather cosmetic changes
+(-) fixed a bug when entering an output directory
+    without a trailing backslash lead to unexpected
+    results
+
+
+Version 1.0.2 (02. July 2000)
+(+) new advanced option: delete file after encoding
+(+) When VBR is used, show bitrate histogram on log 
+    (if encoder version outputs it!)
+(*) Progress dialog now also shows elapsed time for batch
+(-) when no output directory is given, encoded file
+    is stored where input file is
+(-) making it impossible to set the quality in the 
+    VBR tab of the options higher than 9
+(-) Delete 0 byte output files after an error occurred
+
+
+Version 1.0.1 (25. June 2000)
+First public release.
+Some bug fixes, some improvements.
+ 
+
+Version 1.0.0 (06. June 2000)
+First semi-public beta release

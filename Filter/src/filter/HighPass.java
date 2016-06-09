@@ -26,13 +26,12 @@ public class HighPass {
         while (true) {
         line = r.readLine();
         if (line == null) { break; }
-        System.out.println(line);}
-    
+        System.out.println(line);
+        }
   }
     
     public static void main(String[] args) throws IOException{
     
-       
     }
     
 }
