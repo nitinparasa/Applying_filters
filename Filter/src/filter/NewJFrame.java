@@ -252,6 +252,8 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
 
          // create the filtered sound stream
          is = new FilteredSoundStream(is, filter);
+         
+        System.out.print(is.getClass());
 
           // play the sound
          sound.play(is);
