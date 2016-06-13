@@ -23,6 +23,9 @@ import it.sauronsoftware.jave.EncoderProgressListener;
 import it.sauronsoftware.jave.EncodingAttributes;
 import it.sauronsoftware.jave.MultimediaInfo;
 import it.sauronsoftware.jave.Encoder;
+import java.awt.Button;
+import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.ByteArrayInputStream;
@@ -35,6 +38,10 @@ import javazoom.jl.player.Player;
  * @author mahith
  */
 public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
+
+    static void main() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     /**
      * Creates new form NewJFrame
@@ -410,7 +417,7 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -440,7 +447,7 @@ public class NewJFrame extends javax.swing.JFrame  implements MouseListener {
                 new NewJFrame().setVisible(true);
             }
         });
-    }
+    }  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
