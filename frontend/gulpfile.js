@@ -12,7 +12,6 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     bower = require('./bower'),
     isWatching = false,
-    gulp1 = require('gulp'),
     zip = require('gulp-zip');
 
 var htmlminOpts = {
@@ -26,11 +25,12 @@ var htmlminOpts = {
 /**
  * JS Hint
  */
-gulp1.task('default', function(){
+gulp.task('zip',function(){
   return gulp.src('src/*')
     .pipe(zip('archive.zip'))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('./dist'));
 });
+
 gulp.task('jshint', function () {
   return gulp.src([
     './gulpfile.js',
