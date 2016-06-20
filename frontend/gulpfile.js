@@ -11,9 +11,14 @@ var gulp = require('gulp'),
     lazypipe = require('lazypipe'),
     stylish = require('jshint-stylish'),
     bower = require('./bower'),
+<<<<<<< HEAD
     isWatching = false;
 const gulp1 = require('gulp');
 const zip = require('gulp-zip');
+=======
+    isWatching = false,
+    zip = require('gulp-zip');
+>>>>>>> 54d3f959f4d6cc0717e797baac981b26619569ae
 
 var htmlminOpts = {
   removeComments: true,
@@ -26,6 +31,12 @@ var htmlminOpts = {
 /**
  * JS Hint
  */
+gulp.task('zip',function(){
+  return gulp.src('src/*')
+    .pipe(zip('archive.zip'))
+    .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('jshint', function () {
   return gulp.src([
     './gulpfile.js',
@@ -108,7 +119,7 @@ gulp.task('build-all', ['styles', 'templates'], index);
 
 function index () {
   var opt = {read: false};
-  return gulp.src('./src/app/index.html')
+  return gulp.src('./src/app/default.html')
     .pipe(g.inject(gulp.src(bowerFiles(), opt), {ignorePath: 'bower_components', starttag: '<!-- inject:vendor:{{ext}} -->'}))
     .pipe(g.inject(es.merge(appFiles(), cssFiles(opt)), {ignorePath: ['.tmp', 'src/app']}))
     .pipe(gulp.dest('./src/app/'))
@@ -129,7 +140,7 @@ gulp.task('assets', function () {
  * Dist
  */
 gulp.task('dist', ['vendors', 'assets', 'styles-dist', 'scripts-dist'], function () {
-  return gulp.src('./src/app/index.html')
+  return gulp.src('./src/app/default.html')
     .pipe(g.inject(gulp.src('./dist/vendors.min.{js,css}'), {ignorePath: 'dist', starttag: '<!-- inject:vendor:{{ext}} -->'}))
     .pipe(g.inject(gulp.src('./dist/' + bower.name + '.min.{js,css}'), {ignorePath: 'dist'}))
     .pipe(g.htmlmin(htmlminOpts))
@@ -159,6 +170,7 @@ gulp.task('watch', ['statics', 'default'], function () {
       g.livereload.changed(evt);
     }
   });
+  gulp.watch('./src/app/default.html', ['default']);
   gulp.watch('./src/app/index.html', ['index']);
   gulp.watch(['./src/app/**/*.html', '!./src/app/index.html'], ['templates']);
   gulp.watch(['./src/app/**/*.scss'], ['csslint']).on('change', function (evt) {
@@ -169,7 +181,6 @@ gulp.task('watch', ['statics', 'default'], function () {
     }
   });
 });
-
 /**
  * Default task
  */
