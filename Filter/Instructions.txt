@@ -1,0 +1,4 @@
+1. Install sox.exe and (preferably place the file on the desktop)
+2. Place the folder "razorlamepack"
+3. In the code, replace all the set paths relevant to your computer.
+4. The application will work. Please make sure there are no spaces in the name of the path of the audio file. (issue with windows systems ONLY)
