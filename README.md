@@ -1,5 +1,5 @@
 # Applying_filters
-This project is useful to apply namely three different filters namely; EchoFilter, LowPassFilter and HighPassFilter.
+This project is useful to apply namely three different filters; EchoFilter, LowPassFilter and HighPassFilter.
 The user will login to a web application, which gives him access to use the filter.
 
 #Current Status
