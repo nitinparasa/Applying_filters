@@ -11,14 +11,8 @@ var gulp = require('gulp'),
     lazypipe = require('lazypipe'),
     stylish = require('jshint-stylish'),
     bower = require('./bower'),
-<<<<<<< HEAD
     isWatching = false;
-const gulp1 = require('gulp');
-const zip = require('gulp-zip');
-=======
-    isWatching = false,
     zip = require('gulp-zip');
->>>>>>> 54d3f959f4d6cc0717e797baac981b26619569ae
 
 var htmlminOpts = {
   removeComments: true,
