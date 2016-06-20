@@ -12,6 +12,8 @@ var gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     bower = require('./bower'),
     isWatching = false;
+const gulp1 = require('gulp');
+const zip = require('gulp-zip');
 
 var htmlminOpts = {
   removeComments: true,
@@ -205,7 +207,11 @@ gulp.task('karma-conf', ['templates'], function () {
     }))
     .pipe(gulp.dest('./'));
 });
-
+gulp1.task('default', function () {
+  return gulp.src('src/*')
+    .pipe(zip('archive.zip'))
+    .pipe(gulp.dest('dist'));
+});
 /**
  * Test files
  */

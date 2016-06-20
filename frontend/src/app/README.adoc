@@ -1,0 +1,129 @@
+:version: 2.5.1
+
+= Bower Installer Gradle Plugin
+
+The Gradle plugin uses https://github.com/blittle/bower-installer[bower-installer] to manage client-side dependencies alongside the other
+dependencies in *build.gradle.*
+
+== Getting Started
+
+[source,gradle,subs='attributes']
+----
+plugins {
+    id 'com.craigburke.bower-installer' version '{version}'
+}
+----
+
+== Tasks
+
+The plugin adds the following tasks to your build:
+
+|===
+
+| *Task* | *Description*
+
+| bowerInstall | Installs all the bower dependencies you have set in your build.gradle
+
+| bowerRefresh | Refreshes bower dependencies (if you add or modify your bower configuration)
+
+| bowerClean | Removes bower dependencies and clears Bower's cache
+
+|===
+
+== Configuration
+
+You can specify dependencies as well as control where files are installed to with the provided dependency DSL.
+
+[source,gradle,subs='attributes']
+----
+plugins {
+    id 'com.craigburke.bower-installer' version '{version}'
+}
+
+bower {
+    installBase = 'src/assets/bower' // <1>
+
+    'angular'('1.3.x') {
+        source 'angular.js' // <2>
+    }
+
+    'angular-animate'('1.3.x') {
+        source 'angular-animate.js' >> '/angular/modules/' // <3>
+    }
+
+    'ui-router'('0.2.x') // <4>
+
+    'bootstrap'('3.3.x') {
+        source 'dist/css/*.min.css' >> 'styles/'
+        source 'dist/fonts/**' >> 'fonts/'
+
+        excludes 'jquery' // <5>
+    }
+
+    'animate.css'('https://github.com/daneden/animate.css.git') // <6>
+}
+----
+<1> *installBase* is the base path that the bower dependencies are installed to
+<2> This copies the *angular.js* file to the default location (`src/assets/bower/angular/angular.js`)
+<3> An absolute path is used here so `angular-animate.js` will be copied to `src/assets/bower/angular/modules/angular-animate.js`
+<4> When no sources are specified the default behavior of bower-installer determines which files are included
+<5> Exclude the transitive dependency jquery
+<6> Use a git repository as a dependency source
+
+NOTE: if installBase is not set, it defaults to `src/assets/bower` or `grails-app/assets/bower` in a Grails 3 application.
+
+=== Adding Dependencies
+
+By default, bower-installer will install only the main files listed in that project's bower.json file.
+
+Sometimes you need additional files that aren't listed as the main files. In cases like that first start by including the entire reposistory:
+
+[source,gradle]
+----
+bower {
+    'bootstrap'('3.3.x') {
+        source '**' // <1>
+    }
+}
+----
+<1> This installs all the files within the bootstrap repo to `src/assets/bower/bootstrap/`
+
+From there you can be more selective about what files you actually want installed and where
+[source,gradle]
+----
+bower {
+    'bootstrap'('3.3.x') {
+        source 'dist/**' // <1>
+    }
+}
+----
+<1> This installs everything contained within the dist folder (including subfolders) into `src/assets/bower/bootstrap/`
+
+NOTE: Every time you make a changes to your bower dependencies you must run the `bowerRefresh` task.
+
+=== Advanced Configuration
+
+[source,gradle]
+----
+bower {
+    additional = [ // <1>
+        name: 'gradle-bower-installer'
+    ]
+}
+----
+<1> *additional* allow you to set optional properties in the generated http://bower.io/docs/creating-packages/#bowerjson[bower.json file].
+
+=== Troubleshooting
+
+If you set the bowerDebug property when you run *bowerInstall* then you'll get more detailed output and both the `bower.json` file and the `bower_components` folder will remain to help troubleshoot.
+
+[source,bash]
+----
+./gradlew bowerInstall -PbowerDebug=true
+----
+
+== Contributions
+
+Thank you to the following people who have made major contributions in terms of both feedback and code:
+
+* https://github.com/VoltiSubito[Jason Schindler]

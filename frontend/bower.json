@@ -1,9 +1,5 @@
 {
   "name": "frontend",
-  "main": [
-    "/dist/frontend.min.js",
-    "/dist/frontend.min.css"
-  ],
   "version": "0.1.0",
   "description": "TODO",
   "authors": [

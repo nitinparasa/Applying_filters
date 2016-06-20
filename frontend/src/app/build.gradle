@@ -1,0 +1,55 @@
+plugins {
+    id 'groovy'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '0.9.1'
+    id 'nebula.provided-base' version '3.0.3'
+}
+
+targetCompatibility = 1.6
+
+repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
+group = 'com.craigburke.gradle'
+version = '2.5.1'
+
+ext {
+    artifactId = 'bower-installer'
+}
+
+dependencies {
+    compile gradleApi()
+    compile 'org.codehaus.groovy:groovy-all:2.3.10'
+    compile 'com.moowork.gradle:gradle-node-plugin:0.11'
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+}
+
+pluginBundle {
+    website = 'https://github.com/craigburke/bower-installer-gradle'
+    vcsUrl = 'https://github.com/craigburke/bower-installer-gradle'
+    description = 'Uses bower-installer to manage client-side dependencies alongside the other dependencies in build.gradle.'
+    tags = ['bower', 'bower-installer']
+
+    plugins {
+        bowerInstaller {
+            id = 'com.craigburke.bower-installer'
+            displayName = 'Bower Installer plugin'
+        }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId project.artifactId
+            from components.java
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}

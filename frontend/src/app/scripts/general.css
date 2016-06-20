@@ -21,9 +21,9 @@
     line-height: 1.3;
     font-size: 1.4em;
     padding: 5px 15px;
-    color: #fff;
+    color: slategray;
     width: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: #ffffff;
 }
 .signform input:focus{
     outline: 2px solid cornflowerblue;
@@ -77,7 +77,7 @@
     margin-left: 100px;
 }
 .btn {
-    background-color: #3b5998;
+    background-color: slategray;
     color:white;
 }
 input .btn{
@@ -285,4 +285,10 @@ footer{
 }
 #up_tabs > .active > a, #up_tabs > .active > a:hover {
     outline: none;
+}
+#registerModal a:link:first-child{
+  color:#3b5998;
+}
+#registerModal a:link:last-child{
+  color:#d50f25;
 }
