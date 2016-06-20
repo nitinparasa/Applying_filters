@@ -25,9 +25,12 @@
     width: 100%;
     background-color: #ffffff;
 }
-.signform input:focus{
-    outline: 2px solid cornflowerblue;
+/*.signform input:focus{
+    outline: 1px solid cornflowerblue;
 }
+.signform input.ng-invalid{
+  outline: 1px solid red ;
+}*/
 .signtext{
     font-size: 30px;
     font-weight: BOLD;

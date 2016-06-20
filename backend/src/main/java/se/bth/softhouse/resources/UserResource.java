@@ -27,16 +27,16 @@ public class UserResource {
 
 	@GET
 	@Path("/all/")
-	public Users getBy(){
-	return userDao.getBy();	
+	public Users getBy() {
+		return userDao.getBy();
 	}
-	
-	@GET
+
+	@POST
 	@Path("/name/{uname}")
-	public Users getBy(@PathParam("uname") String username){
-	return userDao.getBy(username);
+	public Users getBy(@PathParam("uname") String username) {
+		return userDao.getBy(username);
 	}
-	
+
 	@GET
 	@Path("/{id}")
 	public Users getBy(@PathParam("id") int id) {

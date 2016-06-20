@@ -7,12 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Applying Filters</title>
   <script src="scripts/angular.js"></script>
-  <script src="scripts/script.js"></script>
   <script src="scripts/app.js"></script>
   <link href="scripts/general.css" rel="stylesheet"/>
   <link href="Content/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <script src="scripts/angular-route.js"></script>
 </head>
 <script>
 
@@ -181,7 +179,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html"><img src="site_images/apply_filters_logo.PNG" style="max-width:100px; margin-top: -7px;"/>APPLYING FILTERS</a>
+      <a class="navbar-brand" href="index.html">APPLYING FILTERS</a>
     </div>
     <div class="collapse navbar-collapse" id="navbar-unordered-list">
       <ul class="nav navbar-right navbar-nav">
@@ -197,7 +195,7 @@
           <a href="#" class="data-toggle" data-toggle="dropdown">SUPPORT&nbsp;<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">HOW <b>APPLYING FILTERS</b> WORKS</a></li>
-            <li><A href="#/default">ABOUT US</A></li>
+            <li><A href="#">ABOUT US</A></li>
             <li><a href="#">CONTACT US</a></li>
           </ul>
         </li>
@@ -212,8 +210,7 @@
     <div class="modal-content">
       <div class="modal-body">
         <div ng-controller="signCtrl">
-          <form class="form-horizontal signform" role="form" name="form" ng-submit="submitForm()">
-
+          <form class="form-horizontal signform" role="form" name="registerForm" ng-submit="submitForm()" novalidate>
             <div class="jumbotron" style="margin-top: 0px;">
               <div class="row">
                 <div class="col-md-offset-2 col-md-8 col-md-offset-2" style="margin-top: -40px;">
@@ -228,50 +225,58 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-class="{ 'has-error': registerForm.uname.$error.required && !registerForm.uname.$pristine}">
                   <div class="row">
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                       <label for="uname" class="control-label col-md-6 " style="text-align:left;">USERNAME</label>
                       <div class="input-group col-md-6">
-                        <input type="text" name="uname" ng-model="user.username" id="uname" ng-minlength="4" ng-maxlength="8"  placeholder="Enter username..." required/>
+                        <input type="text" ng-model="user.username" id="uname" name="uname" ng-minlength="4" ng-maxlength="8"  placeholder="Enter username..." required focus="true"/>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                       </div>
-                      <p ng-show="form.uname.$error.minlength" class="help-block" style="font-size:10px;float:right;color:darkred;">
-                        <span>*</span>Username is too short.</p>
+                      <span ng-show="registerForm.uname.$error.required && !registerForm.uname.$pristine" class="help-block">Enter a Valid Username.</span>
+                      <span ng-show="!registerForm.uname.$valid && !registerForm.uname.$pristine" class="help-block">Username must have 4 to 8 characters.</span>
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-class="{ 'has-error': registerForm.email.$invalid && !registerForm.email.$pristine }">
                   <div class="row">
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                       <label for="email" class="control-label col-md-6" style="text-align:left;">EMAIL</label>
                       <div class="input-group col-md-6">
-                        <input type="email" name="email" ng-model="email" id="email" placeholder="Enter email-address..." >
+                        <input type="email" name="email" ng-model="user.emailid" id="email" placeholder="Enter email-address..." required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+
                       </div>
-                      <p ng-show="form.email.$invalid" class="help-block" style="font-size:10px;float:right;color:darkred;">
-                        <span>*</span>Enter a valid email.</p>
+
+                        <span ng-show="(registerForm.email.$invalid ||
+                                        registerForm.email.$error.required) &&
+                                        !registerForm.email.$pristine"
+                                                        class="help-block">Enter a valid email address.</span>
                     </div>
 
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-class="{ 'has-error': registerForm.inpass.$error.required && !registerForm.inpass.$pristine }">
                   <div class="row">
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                       <label for="inpass" class="control-label col-md-6" style="text-align:left;">PASSWORD</label>
                       <div class="input-group col-md-6">
-                        <input type="password" name="inpass" ng-model="user.password" id="inpass" placeholder="Enter password...">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>                                        </div>
+                        <input type="password" name="inpass" ng-model="user.password" id="inpass" placeholder="Enter password..." required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+
+                      </div>
+                      <span ng-show="registerForm.inpass.$error.required && !registerForm.inpass.$pristine" class="help-block">Enter a Valid Password.</span>
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-class="{ 'has-error': registerForm.cpass.$error.required && !registerForm.cpass.$pristine }">
                   <div class="row">
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                       <label for="cpass" class="control-label col-md-6" style="text-align:left;">CONFIRM PASSWORD</label>
                       <div class="input-group col-md-6">
-                        <input type="password" name="cpass" ng-model="user.confirm_password" id="cpass" placeholder="Please confirm password...">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>                                        </div>
+                        <input type="password" name="cpass" ng-model="user.confirm_password" id="cpass" placeholder="Please confirm password..." required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -283,7 +288,7 @@
                 <div class="row">
                   <div class="col-md-offset-4 col-md-4 col-md-offset-4">
                     <div class="signbtn">
-                      <button type="submit" class="btn btn-block" name="signup" id="signup">CREATE ACCOUNT</button>
+                      <button type="submit" class="btn btn-block" name="signup" id="signup" ng-disabled="registerForm.$invalid">CREATE ACCOUNT</button>
                     </div>
                   </div>
                 </div>
@@ -297,7 +302,7 @@
                     <label style="font-size: 20px;">Already a member?</label>
                   </div>
                   <div class="col-md-4 col-md-offset-0 col-sm-12 col-xs-12" style="float:right;margin-top: 20px;">
-                    <input type="button" action="#" class="btn" id="loginbtn" value="Login Here" data-toggle="modal" data-target="#loginModal" data-dismiss="modal" style="background-color: slategray;color:white;"/>
+                    <input type="button" class="btn" id="loginbtn" value="Login Here" data-toggle="modal" data-target="#loginModal" data-dismiss="modal" style="background-color: slategray;color:white;"/>
                   </div>
                 </div>
               </div>
@@ -315,7 +320,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-        <form class="form-horizontal signform" role="form" action="index.html" ng-submit="checkLogin()">
+        <form class="form-horizontal signform" role="form" action="#/loginredirect" ng-submit="checkLogin()" name="loginForm" novalidate>
           <div class="jumbotron">
             <div class="container">
               <div class="row">
@@ -336,17 +341,17 @@
                   </button>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group" ng-class="{ 'has-error': loginForm.luname.$error.required && !loginForm.luname.$pristine }">
                 <div class="row">
                   <div class="col-md-offset-1 col-md-10 col-md-offset-1">
-                    <label for="luname" class="control-label col-md-6 " style="text-align:left;">USERNAME / EMAIL</label>
+                    <label for="luname" class="control-label col-md-6 " style="text-align:left;">USERNAME</label>
                     <div class="input-group col-md-6">
                       <input type="text" name="luname" ng-model="luname" id="luname" placeholder="Enter username or Email...">
                       <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>                                        </div>
                   </div>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group" ng-class="{ 'has-error': loginForm.linpass.$error.required && !loginForm.linpass.$pristine }">
                 <div class="row">
                   <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                     <label for="linpass" class="control-label col-md-6" style="text-align:left;">PASSWORD</label>
@@ -367,7 +372,7 @@
               <div class="row">
                 <div class="col-md-offset-4 col-md-4 col-md-offset-4">
                   <div class="signbtn">
-                    <button class="btn btn-block" type="submit" name="signin" id="signin">LOG IN</button>
+                    <button class="btn btn-block" type="submit" name="signin" id="signin" ng-disabled="loginForm.$invalid">LOG IN</button>
                   </div>
                 </div>
               </div>
@@ -382,7 +387,7 @@
                   <label style="font-size: 20px;">Don't have an account?</label>
                 </div>
                 <div class="col-md-4 col-md-offset-0 col-sm-12 col-xs-12" style="float:right;margin-top: 20px;">
-                  <input type="button" action="#" class="btn" value="SignUp Here" data-toggle="modal" data-target="#registerModal" id="reglink" data-dismiss="modal" style="background-color: slategray;color:white;font-size: 15px;"/>
+                  <input type="button" class="btn" value="SignUp Here" data-toggle="modal" data-target="#registerModal" id="reglink" data-dismiss="modal" style="background-color: slategray;color:white;font-size: 15px;"/>
                 </div>
               </div>
             </div>
@@ -392,10 +397,6 @@
     </div>
   </div>
 </div>
-
-<!-- Forgot Modal-->
-
-<!--Body-->
 
 <div class="menu_tabs">
   <div class="row">
@@ -410,27 +411,8 @@
   </div>
 </div>
 
-<!-- Body_Trending-->
-<div class="jumbotron">
-  <div class="container">
-    <div class="row">
-      <ul class="nav nav-tabs" role="tablist" id="main_tabs">
-        <li><a href="#usrfilts" data-toggle="tab">Your Audio Files</a></li>
-        <li  class="active"><a href="#topfilts" data-toggle="tab">Trending</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane fade" id="usrfilts">
-          Here you find the audio files of a corresponding user and the filters that have been applied.
-        </div>
-        <div class="tab-pane fade in active" id="topfilts">
-          Here you find the most trending filter applied by various users of <b>Applying Filters</b> application.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- Upload_modal-->
-<div class="modal fade" id="upload_modal">
+<div class="modal fade" id="upload_modal" ng-controller="AudioController">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
@@ -447,28 +429,30 @@
               <div class="col-md-offset-3 col-md-6 col-md-offset-3" style="text-align: center;">
                 <label style="font-size: 20px;">Select your audio files</label>
               </div>
+              <form action="#/fileupload" method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-md-4" >
                   <label class="btn btn-default btn-file" style=" width:100%;font-size: 15px;">
-                    Browse <input type="file" style="display: none;">
+                    Browse <input type="file" style="display: none;" ng-model="upFile" id="upFile" name="upFile">
                   </label>
                 </div>
                 <div class="col-md-4" style="color:#292C2F;font-family:'Trebuchet MS';text-align: center;margin-top:10px;">
                   <div class="fileselected"></div>
+                  <div><button type="submit" class="btn btn-primary">Upload</button></div>
                 </div>
               </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer" style="text-align:center;">
-        <label>By Uploading, you agree to our <a href="terms.html" style="color:cyan;">Terms</a>.</label>
+        <label>By Uploading, you agree to our <a href="#/terms" style="color:cyan;">Terms</a>.</label>
       </div>
     </div>
   </div>
 </div>
-
-
+<ng-view></ng-view>
 <!-- Footer -->
 <footer>
   <div class="footnav" >
@@ -529,6 +513,10 @@
     </div>
   </div>
 </footer>
+<script src="scripts/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+<script src="scripts/ng-file-upload.min.js"></script>
+<script src="scripts/angular-cookies.min.js"></script>
+<script src="scripts/angular-route.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
 </body>
 </html>

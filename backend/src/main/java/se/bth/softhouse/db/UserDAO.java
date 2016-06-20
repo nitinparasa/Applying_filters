@@ -11,18 +11,18 @@ import se.bth.softhouse.entities.Users;
 
 @RegisterMapperFactory(BeanMapperFactory.class)
 public interface UserDAO {
-	@SqlUpdate("create table if not exists USERS(id int primary key auto_increment, username varchar(255), password varchar(255), confirm_password varchar(255))")
+	@SqlUpdate("create table if not exists App_Filter_USERS(id int primary key auto_increment, username varchar(255), emailid varchar(255), password varchar(255), confirm_password varchar(255))")
 	public void createUsersTable();
 
-	@SqlUpdate("insert into USERS (username,password,confirm_password) values (:username,:password,:confirm_password);")
+	@SqlUpdate("insert into App_Filter_USERS (username,emailid,password,confirm_password) values (:username,:emailid,:password,:confirm_password);")
 	void insertUser(@BindBean Users users);
 
-	@SqlQuery("SELECT * FROM USERS WHERE id = :id;")
+	@SqlQuery("SELECT * FROM App_Filter_USERS WHERE id = :id;")
 	public Users getBy(@Bind("id") int id);
 
-	@SqlQuery("Select * from USERS where username = :username;")
+	@SqlQuery("Select * from App_Filter_USERS where username = :username;")
 	public Users getBy(@Bind("username") String username);
-	
-	@SqlQuery("select * from USERS;")
+
+	@SqlQuery("select id,username,emailid from App_Filter_USERS;")
 	public Users getBy();
 }
