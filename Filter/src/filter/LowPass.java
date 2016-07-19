@@ -13,10 +13,13 @@ import java.io.InputStreamReader;
  *
  * @author mahith
  */
-public class LowPass {
+ class LowPass {
     
-    public void fil(String s1) throws IOException{   
+    public void low(String s1) throws IOException{   
       
+        // applying high pass filter using razor lame executable (Developed on c)
+        // specfying path of the audio file as input to the executabe using command line
+        
         ProcessBuilder builder = new ProcessBuilder(
             "cmd.exe", "/c", "cd \"C:\\Users\\mahith\\Desktop\\razorlamepack\" && lame "+s1+" audio2.mp3 --lowpass 19.7");
         builder.redirectErrorStream(true);
@@ -28,11 +31,7 @@ public class LowPass {
         if (line == null) { break; }
         System.out.println(line);
         }
-  }
+   }
+ }
         
-    public static void main(String[] args) throws IOException{
-          
-        
-    }
-    
-}
+   

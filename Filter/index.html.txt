@@ -1,0 +1,1 @@
+<APPLET codebase="classes" code="cmd/Cmd.class" archive="lib/swing-layout-1.0.4.jar,other.necessary.jar" .../>
